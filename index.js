@@ -147,6 +147,9 @@ WeDo2.prototype.connect = function (nameSpace, callback) {
 				this.ble.startScanning(null, true);
 			} else {
 				this.cout('stateChange == ' + state);
+				if (state == "unsupported") {
+					this.emit("deviceUnsupported");
+				}
 				this.ble.stopScanning();
 				if (typeof callback === 'function') {
 					callback(new Error('Error with Bluetooth Adapter, please retry'));

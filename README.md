@@ -94,6 +94,13 @@ wedo2.on('port', function (port, connected, type, uuid) {
 });
 ~~~~
 
+If the BT device is not supported the following event is fired.
+~~~~js
+wedo2.on('deviceUnsupported', function () {
+	console.log('Sorry, this Bluetooth device is not supported. Please use BT4.0 adapter.');
+});
+~~~~
+
 ####Setters
 
 Without a uuid argument, all setters will set values for the first WeDo found.
